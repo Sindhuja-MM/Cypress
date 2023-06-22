@@ -4,8 +4,7 @@
   "description": "Cypress with Cucumber Framework",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --browser chrome",
-    "firefoxTest": "npm run test -- --browser firefox"
+    "test": "npx cypress run --browser chrome --reporter mochawesome"
   },
   "author": "",
   "license": "ISC",
