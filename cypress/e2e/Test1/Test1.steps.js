@@ -1,25 +1,28 @@
 import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps";
+import Test1Page from '../pages/Test1.page';
+
+const test1Page = new Test1Page();
 
 Given("I launch the cypress URL", () => {
-cy.visit("https://www.cypress.io/");
+test1Page.launchURL();
 })
 
 When("I click on documentation button", () => {
-  cy.get(".flex-wrap .text-indigo-500").click();
+test1Page.selectDocumentationButton();
 })
 
 Then("I should be on the Why Cypress page", ()=> {
-  cy.get("h1").should("have.text", "Why Cypress?")
+ test1Page.validateCypressPage();
 })
 
 And("I click on Getting started option in the left pane", () => {
-  cy.contains("Getting Started").click();
+test1Page.selectGetStartedButton();
 })
 
 When("I click on Installing Cypress button", () => {
-  cy.get(':nth-child(2) > .menu__list > :nth-child(1) > .menu__link').click();
+test1Page.selectInstallCypressButton();
 })
 
 Then("I should be on the Installing Cypress page", () => {
-  cy.get("h1").should("have.text", "Installing Cypress");
+test1Page.validateInstallCypressPage();
 })
